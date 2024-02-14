@@ -1,0 +1,335 @@
+.dashboard__wrapper {
+    margin-top: 4.85rem;
+    padding: 0 $padding-left;
+
+    @include media("<=phone") {
+        padding: 0 .75rem;
+    }
+
+    &-inner {
+        @include flex (flex, initial, initial, initial);
+        gap: 1.5rem;
+
+        @include media("<=phone") {
+            display: block;
+        }
+
+        .left__pane {
+            position: sticky;
+            padding: 1.5rem .75rem;
+            width: 14rem;
+            max-width: 270px;
+            min-height: 100px;
+            max-height: 255px;
+            background-color: rgba($color: $black-shade, $alpha: .5);
+            border-radius: .2rem;
+            backdrop-filter: blur(15px);
+
+            @include media("<=phone") {
+                position: fixed;
+                bottom: 14%;
+                z-index: 100000;
+                left: 50%;
+                transform: translateX(-50%) !important;
+                transform: translateY(1000%);
+                opacity: 0;
+                display: none;
+            }
+
+            &-inner {
+                ul {
+                    list-style: none;
+
+                    li {
+                        background: $black-shade;
+                        border-radius: .45rem;
+                        
+                        svg {
+                            font-size: 1.35rem;
+                        }
+                        
+                        a {
+                            @include flex (flex, center, initial, row);
+                            gap: .5rem;
+                            padding: .65rem .75rem;
+                            text-decoration: none;
+                            color: $white;
+                            transition: .3s ease-in-out;
+
+                            span {
+                                font-size: .95rem;
+                            }
+
+                            &:hover {
+                                color: $gray;
+                            }
+                        }
+
+                        &:not(:last-of-type) {
+                            margin-bottom: .45rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .middle__pane {
+            // padding: 1.5rem .75rem;
+            width: 49rem;
+            // max-width: px;
+
+            @include media("<=phone") {
+                width: 100%;
+                margin-top: 1.5rem;
+            }
+            
+            &-welcome {
+                display: flex;
+                gap: .5rem;
+                width: 100%;
+                // max-width: 270px;
+                background-color: rgba($color: $black-shade, $alpha: .5);
+                border-radius: .2rem;
+                backdrop-filter: blur(15px);
+                overflow: hidden;
+
+                @include media("<=phone") {
+                    background: none;
+                    backdrop-filter: none;
+                }
+
+                &-left {
+                    padding: 1.5rem 2.5rem;
+
+                    @include media("<=phone") {
+                        padding: 0 .35rem;
+                    }
+
+                    .intro {
+                        margin-bottom: 2rem;
+
+                        h2 {
+                            font-family: $primary-font;
+                            font-size: 2.15rem;
+
+                            @include media("<=phone") {
+                                font-size: 1.5rem;
+                            }
+                        }
+
+                        span.animated__span {
+                            display: inline-block;
+                            width: 100%;
+                            color: $gray;
+                            overflow: hidden;
+
+                            
+                            span {
+                                display: inline-block;
+                                animation: wheeze-in 15s cubic-bezier(1, 0,0, 1) infinite;
+
+                                @include media("<=phone") {
+                                    font-size: .85rem;
+                                    // animation: none;
+                                }
+                            }
+                        }
+                    }
+
+                    .progress__blocks {
+                        @include flex (flex, initial, initial, initial);
+                        gap: 1rem;
+
+                        @include media("<=phone") {
+                            gap: .65rem;
+                        }
+
+                        &-block {
+                            width: 10rem;
+                            max-width: 250px;
+                            background: linear-gradient(120deg, #3e187a 0%, #994ecc 74%);
+                            backdrop-filter: blur(104px);
+                            padding: .65rem .75rem;
+                            border-radius: .45rem;
+                            box-shadow: rgba($color: #000000, $alpha: 0.1) 0px 4px 12px;
+
+                            @include media("<=phone") {
+                                backdrop-filter: none;
+                            }
+
+                            h3 {
+                                font-size: .85rem;
+                                font-family: $primary-font;
+                            }
+
+                            span {
+                                font-size: .75rem;
+                            }
+
+                            &:nth-child(1) {
+                                display: flex;
+                                justify-content: space-between;
+
+                                span.badge {
+                                    display: inline-block;
+                                    width: 2.25rem;
+                                    height: 2.25rem;
+                                    background-image: url('../../../public/badge.png');
+                                    background-position: 50% 20%;
+                                    background-size: 3rem;
+                                    background-repeat: no-repeat;
+
+                                }
+                            }
+
+                            @include media("<=phone") {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                        }
+                    }
+                }
+
+                &::after {
+                    display: inline-block;
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 50%;
+                    top: 1rem;
+                    right: -3rem;
+                    background-image: url('../../../public/planet.png');
+                    background-position: 100% 10%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    box-shadow: rgba($color: #000000, $alpha: 0.1) 0px 4px 12px;
+                    z-index: -1;
+                    // filter: saturate(1);
+                    animation: wobble 3s ease infinite;
+
+                    @include media("<=phone") {
+                        display: none;
+                    }
+                }
+            }
+
+            .picker {
+                margin: 2rem 0;
+
+                &__header {
+                    margin-bottom: 1rem;
+
+                    h2 {
+                        font-family: $primary-font;
+                    }
+
+                    span {
+                        font-family: $primary-font;
+                        color: $gray;
+                        // font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        .right__pane {
+            width: 14rem;
+            max-width: 270px;
+            max-height: 430px;
+            // background-color: rgba($color: $black-shade, $alpha: .5);
+            // border-radius: .2rem;
+
+            @include media("<=phone") {
+                position: fixed;
+                bottom: 14%;
+                z-index: 100000;
+                left: 50%;
+                transform: translateX(-50%) !important;
+                display: none;
+                transform: translateY(-1000%);
+                opacity: 0;
+            }
+            
+            &-top {
+                width: 100%;
+                padding: .65rem .75rem;
+                background-color: rgba($color: $black-shade, $alpha: .5);
+                border-radius: .35rem;
+                
+                @include media("<=phone") {
+                    background-color: rgba($color: $black-shade, $alpha: .95);
+                    border-radius: 1rem;
+                }
+
+                &-inner {
+                    .user__info {
+                        @include flex(flex, center, initial, initial);
+                        gap: .5rem;
+
+                        &-avatar {
+                            height: 3rem;
+                            width: 3rem;
+                            border-radius: 50%;
+                            background-image: url('../../../public/avatars/boy\ 4.jpg');
+                            background-position: center;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            box-shadow: rgba($color: #000000, $alpha: 0.1) 0px 4px 12px;
+                        }
+
+                        &-details {
+                            h4 {
+                                font-family: $primary-font;
+                            }
+
+                            a {
+                                @include flex (inline-flex, center, initial, initial);
+                                text-decoration: none;
+                                color: $white;
+                                font-size: .85rem;
+                                transition: .3s ease-in-out;
+                                gap: .35rem;
+
+                                &:hover {
+                                    color: $gray;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom__nav {
+        position: fixed;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: .55rem;
+        width: 70%;
+        background-color: rgba($color: $black-shade, $alpha: .5);
+        border-radius: 5rem;
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+
+        @include media(">=phone") {
+            display: none;
+        }
+
+        &-inner {
+            @include flex (flex, center, initial, initial);
+            gap: 1rem;
+
+            button {
+                padding: .15rem;
+                width: 100%;
+                background: none;
+                outline: none;
+                border: none;
+                color: $white;
+                font-size: 1.85rem;
+            }
+        }
+    }
+}

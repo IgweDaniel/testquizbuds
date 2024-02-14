@@ -1,0 +1,296 @@
+.game__wrapper {
+    margin-top: 4.85rem;
+    position: relative;
+    padding: 0 $padding-left;
+
+    @include media("<=phone") {
+        padding: 0 1.15rem;
+    }
+
+    &-inner {
+        @include flex (flex, initial, initial, initial);
+        gap: 1.5rem;
+
+        .left__pane {
+            position: sticky;
+            padding: 1.5rem .85rem;
+            width: 14rem;
+            max-width: 270px;
+            min-height: 13rem;
+            background-color: rgba($color: $black-shade, $alpha: .5);
+            border-radius: .2rem;
+            backdrop-filter: blur(15px);
+
+            @include media("<=phone") {
+                position: fixed;
+                bottom: 14%;
+                z-index: 100000;
+                left: 50%;
+                transform: translateX(-50%) !important;
+                transform: translateY(-1000%);
+                opacity: 0;
+                display: none;
+            }
+
+            &-header {
+                margin-bottom: 1.25rem;
+
+                h2 {
+                    font-size: 1.35rem;
+                }
+
+                span {
+                    font-size: .95rem;
+                    color: $gray;
+                }
+            }
+
+            &-body {
+                form {
+                    .difficulty__container {
+                        margin-bottom: 1.5rem;
+                        
+                        h2 {
+                            font-size: 1.25rem;
+                            margin-bottom: .35rem;
+                            line-height: 1.35rem;
+                        }
+
+                        div {
+                            input[type='radio'] {
+                                display: none;
+                            }
+
+                            label {
+                                display: flex;
+                                cursor: pointer;
+
+                                input[type="radio"]:checked + span::before {
+                                    box-shadow: inset 0 0 0 7px $green;
+                                }
+
+                                span {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    padding: .25rem .35rem;
+                                    border-radius: .25rem;
+                                    transition: .3s ease-in-out;
+
+                                    &::before {
+                                        content: '';
+                                        background-color: #fff;
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        border-radius: 50%;
+                                        margin-right: .45rem;
+                                        transition: .3s ease-in-out;
+                                        box-shadow: inset 0 0 0 3px $black-shade;
+                                    }
+
+                                    &:hover {
+                                        background-color: $black-shade;
+                                    }
+                                }
+                            }
+
+                            &:not(:last-of-type) {
+                                margin-bottom: .35rem;
+                            }
+                        }
+
+                        
+                    }
+
+                    .set__quiz__type {
+                        width: 100%;
+                        
+                        h2 {
+                            font-size: 1.25rem;
+                            margin-bottom: .5rem;
+                        }
+                        
+                        select {
+                            font-family: $primary-font;
+                            width: 100%;
+                            padding: .65rem .2rem;
+                            outline: none;
+                            border-radius: .35rem;
+
+                            option {
+                                padding: .75rem .2rem;
+
+                            }
+                        }
+                    }
+
+                    .cta {
+                        width: 100%;
+                        margin-top: 1.5rem;
+                        display: inline-block;
+                        padding: .75rem;
+                        border: .1rem solid $gray;
+                        border-radius: .65rem;
+                            box-shadow: 0 0.375em 0 currentcolor;
+                        color: $white;
+                        font-size: 1rem;
+                        background: transparent;
+                        transition: all .3s cubic-bezier(1, 0, 0, 1);
+                        cursor: pointer;
+
+                        &:hover {
+                            transform: scale(.95);
+                        }
+                    }
+                }
+            }
+        }
+
+        .middle__pane {
+            width: 49rem;
+            // min-height: 490px;
+            background-color: rgba($color: $black-shade, $alpha: .5);
+            border-radius: .25rem;
+            padding: 1.5rem;
+
+            @include media("<=phone") {
+                width: 100%;
+                margin-top: -1rem;
+                padding: .25rem;
+            }
+
+            &-inner {
+                position: relative;
+            }
+        }
+
+        .right__pane {
+            width: 14rem;
+            max-width: 270px;
+            max-height: 430px;
+
+            @include media("<=phone") {
+                position: fixed;
+                bottom: 14%;
+                z-index: 10000;
+                left: 50%;
+                transform: translateX(-50%) !important;
+                
+                transform: translateY(1000%);
+                opacity: 0;
+                display: none;
+            }
+
+            .cash__reward__container {
+                width: 100%;
+                padding: .85rem;
+                background-color: rgba($color: $black-shade, $alpha: .5);
+                
+                @include media("<=phone") {
+                    background-color: rgba($color: $black-shade, $alpha: .95);
+                }
+
+                &-inner {
+                    width: 100%;
+
+                    ul {
+                        list-style: none;
+
+                        li {
+                            @include flex (flex, initial, space-between, initial);
+
+                            span {
+                                display: inline-block;
+                                margin-bottom: .5rem;
+                                font-size: .85rem;
+
+                                &.active {
+                                    &::after {
+                                        content: '';
+                                        display: inline-block;
+                                        position: relative;
+                                        top: .09rem;
+                                        margin-left: .45rem;
+                                        height: 0;
+                                        width: 0;
+                                        border-top: 6px solid transparent;
+                                        border-bottom: 6px solid transparent;
+                                        border-right: 6px solid $green;
+                                        // background-color: $green;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .leaderboard__container {
+                margin-top: 1rem;
+                width: 14rem;
+                padding: .85rem;
+                background-color: rgba($color: $black-shade, $alpha: .5);
+
+
+                h2 {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+
+    .bottom__nav {
+        position: fixed;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: .55rem;
+        width: 70%;
+        background-color: rgba($color: $black-shade, $alpha: .5);
+        border-radius: 5rem;
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+
+        @include media(">=phone") {
+            display: none;
+        }
+
+        &-inner {
+            @include flex (flex, center, initial, initial);
+            gap: 1rem;
+
+            button {
+                padding: .15rem;
+                width: 100%;
+                background: none;
+                outline: none;
+                border: none;
+                color: $white;
+                font-size: 1.85rem;
+            }
+        }
+    }
+}
+
+.loading__screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000000;
+    background-color: rgba($color: $black-shade, $alpha: .98);
+    @include flex (flex, center, center, initial);
+    
+    &-inner {
+        @include flex (flex, center, center, column);
+
+        svg {
+            font-size: 2.25rem;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-top: .5rem;
+        }
+    }
+}

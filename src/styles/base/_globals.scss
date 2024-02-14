@@ -1,0 +1,32 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    font-family: $primary-font;
+    background: #000;
+    color: $white;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+button {
+    &:disabled {
+        color: $gray;
+        cursor: not-allowed;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}

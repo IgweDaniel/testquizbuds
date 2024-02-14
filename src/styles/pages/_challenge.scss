@@ -1,0 +1,323 @@
+.challenge__container {
+    margin-top: 4.85rem;
+    padding-left: $padding-left;
+
+    @include media("<=phone") {
+        padding: 0 1.15rem;
+    }
+
+    &-inner {
+        .challenge__header {
+            margin-bottom: 1.85rem;
+            text-align: center;
+
+                h2 {
+                    font-size: 3rem;
+                    font-family: $secondary-font;
+                    background: linear-gradient(-45deg, #8000ff, rgb(207,89,230), #6bc5f8), rgb(42, 43, 56);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-animation: gradient 3s ease infinite;
+                    -moz-animation: gradient 3s ease infinite;
+                    animation: gradient 3s ease infinite;
+
+                    @include media("<=phone") {
+                        font-size: 2.25rem;
+                    }
+                }
+
+                span {
+                    font-family: $primary-font;
+                    font-size: .85rem;
+                    color: $gray;
+
+                    @include media("<=phone") {
+                        font-size: .75rem;
+                        line-height: .025rem;
+                    }
+                }
+        }
+
+        .challenge__body {
+            margin-top: 4rem;
+            @include flex (flex, center, center, column);
+
+            &-category {
+                .category__header {
+                    margin-bottom: 1rem;
+
+                    h2 {
+                        text-align: center;
+                        font-family: $secondary-font;
+
+                        @include media("<=phone") {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+                .slider {
+                    max-width: 750px;
+                    position: relative;
+
+                    @include media("<=phone") {
+                        width: 72%;
+                        padding-left: 1rem;
+                    }
+
+                    .item__overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: rgba(255, 255, 255, 0.7);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+
+            &-difficulty {
+                margin-top: 2rem;
+                .difficulty__header {
+                    margin-bottom: 1rem;
+
+                    h2 {
+                        font-family: $secondary-font;
+
+                        @include media("<=phone") {
+                            font-size: 1.25rem;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .difficulty__body {
+                    @include flex (flex, center, center, initial);
+                    div {
+                        input[type='radio'] {
+                            display: none;
+                        }
+
+                        label {
+                            display: flex;
+                            cursor: pointer;
+
+                            input[type="radio"]:checked + span::before {
+                                box-shadow: inset 0 0 0 7px $green;
+                            }
+
+                            span {
+                                display: inline-flex;
+                                align-items: center;
+                                padding: .25rem .35rem;
+                                border-radius: .25rem;
+                                transition: .3s ease-in-out;
+
+                                &::before {
+                                    content: '';
+                                    background-color: #fff;
+                                    width: 1.25rem;
+                                    height: 1.25rem;
+                                    border-radius: 50%;
+                                    margin-right: .45rem;
+                                    transition: .3s ease-in-out;
+                                    box-shadow: inset 0 0 0 3px $black-shade;
+                                }
+
+                                &:hover {
+                                    background-color: $black-shade;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-max {
+                margin-top: 2rem;
+                div {
+                    text-align: center;
+                    margin-bottom: .25rem;
+
+                    span {
+                        display: inline-block;
+                        font-family: $secondary-font;
+                        font-size: 1.45rem;
+
+                        @include media("<=phone") {
+                            font-size: 1.25rem;
+                        }
+                    }
+
+                    small {
+                        display: inline-block;
+                        color: $gray;
+                        font-style: italic;
+                        font-size: .75rem;
+                        // margin-top: -.25rem;
+                    }
+                }
+
+                input {
+                    padding: .25rem;
+                    background: none;
+                    outline: none;
+                    width: 100%;
+                    border: 1px solid $white;
+                    color: $white;
+                    font-family: $primary-font;
+                    transition: all .3s cubic-bezier(1, 0, 0, 1);
+
+                    
+                }
+            }
+
+            &-wager {
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+                
+                .wager__header {
+                    @include flex (flex, center, space-between, initial);
+                    gap: 1rem;
+                    margin-bottom: 1rem;
+
+                    h2 {
+                        font-family: $secondary-font;
+
+                        @include media("<=phone") {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+                .mode__button {
+                    .toggler {
+                        display: none;
+    
+                        &:checked {
+                            & + .button__toggle {
+                                background: lighten($color: $green, $amount: 10%);
+    
+                                .handle {
+                                    left: .85rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .button__toggle {
+                        display: inline-block;
+                        background: lighten($color: #555, $amount: 40%);
+                        border-radius: 3px;
+                        height: 1.25rem;
+                        width: 2rem;
+                        padding: 4px;
+                        position: relative;
+                        box-shadow: inset 0 1px 3px rgba($color: #000, $alpha: .22);
+                        overflow: hidden;
+
+                        .handle {
+                            position: absolute;
+                            left: 4px;
+                            right: auto;
+                            width: .85rem;
+                            height: .75rem;
+                            background: #fff;
+                            border-radius: .2rem;
+                            transition: all .4s cubic-bezier(.33, 1.6, .66, 1);
+                            box-shadow: 0 2px 5px rgba($color: #000000, $alpha: .22);
+                        }
+                    }
+                }
+
+                .wager__body {
+                    input {
+                        padding: .55rem;
+                        background: none;
+                        outline: none;
+                        width: 100%;
+                        border: 1px solid $white;
+                        color: $white;
+                        font-family: $primary-font;
+                        transition: all .3s cubic-bezier(1, 0, 0, 1);
+                    }
+                }
+            }
+
+            .button__container {
+                margin-top: .85rem;
+
+                .link__display {
+                    padding: .25rem .45rem;
+                    width: 100%;
+                    border-radius: .5rem;
+                    background: $white;
+                    @include flex (flex, center,center, initial);
+                    
+                    input {
+                        padding: .25rem;
+                        background: none;
+                        outline: none;
+                        width: 100%;
+                        border: none;
+                        border-bottom: 1px solid $gray;
+                        margin-right: .75rem;
+                        color: $gray;
+                        font-family: $primary-font;
+                    }
+
+                    .copy__btn {
+                        .copy {
+                            padding: .5rem .55rem;
+                            @include flex (flex, center, center, initial);
+                            gap: .25rem;
+                            border: .1rem solid $gray;
+                            border-radius: .45rem;
+                            color: $white;
+                            font-size: .95rem;
+                            font-family: $primary-font;
+                            background: $green;
+                            transition: .3s ease-out;
+                            cursor: pointer;
+                            transition: all .3s ease-in-out;
+
+                            &:hover {
+                                background: lighten($color: $green, $amount: 5%);
+                            }
+
+                            &:disabled {
+                                background-color: $gray;
+                            }
+                        }
+                    }
+                }
+
+                button.cta {
+                    display: inline-block;
+                    padding: .45rem;
+                    width: 100%;
+                    border: .1rem solid $gray;
+                    border-radius: .65rem;
+                    box-shadow: 0 0.375em 0 currentcolor;
+                    color: $white;
+                    font-size: 1.15rem;
+                    font-family: $primary-font;
+                    background: transparent;
+                    transition: .3s ease-out;
+                    cursor: pointer;
+                    margin: 1rem 0;
+                        
+                        &:hover {
+                            // color: $gray;
+                            transform: scale(.97);
+                            
+                        }
+                }
+            }
+        }
+    }
+}

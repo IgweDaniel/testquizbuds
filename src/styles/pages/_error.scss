@@ -1,0 +1,37 @@
+.not__found__container {
+    height: 100vh;
+    width: 100%;
+
+    @include flex (flex, center, center, initial);
+
+    &-inner {
+        text-align: center;
+
+        h1 {
+            font-size: 3rem;
+            font-family: $secondary-font;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            padding: .5rem 2.5rem;
+            border: .1rem solid $gray;
+            border-radius: .45rem;
+            box-shadow: 0 0.375em 0 currentcolor;
+            color: $white;
+            font-size: 1.15rem;
+            font-family: $primary-font;
+            background: transparent;
+            transition: .3s ease-out;
+            cursor: pointer;
+            margin: 1rem 0;
+                        
+            &:hover {
+                // color: $gray;
+                transform: scale(.97);
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.error__container {
+    @include flex (flex, center, space-between, initial);
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    padding: 1rem .85rem;
+    width: 50%;
+    border-radius: 1rem;
+    background: rgba($color: #eb7878ef, $alpha: .85);
+    border: 1px solid $white;
+    transform: translateX(-50%);
+    z-index: 10000;
+
+    div {
+        @include flex (flex, center, space-between, initial);
+        gap: .65rem;
+    }
+
+    svg {
+        font-size: 1.15rem;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.19);
+        }
+    }
+}

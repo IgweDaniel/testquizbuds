@@ -1,0 +1,103 @@
+.life__lines {
+    margin-bottom: .85rem;
+
+    & > button {
+        margin: 0 .25rem;
+    }
+    
+    .life__btn {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: $white;
+        padding: .15rem .25rem;
+        border-radius: .45rem;
+        font-size: .85rem;
+        font-family: $primary-font;
+        transition: .3s ease-in-out;
+        cursor: pointer;
+
+        &:disabled {
+            color: $gray;
+            cursor: not-allowed;
+
+            &:hover {
+                transform: none;
+                border: none;
+            }
+        }
+        
+        &:hover {
+            color: $gray;
+            border: 1px solid $white;
+            transform: scale(.97);
+        }
+    }
+}
+
+.question__display {
+    width: 100%;
+    padding: 1rem;
+    @include flex (flex, center, center, initial);
+    margin-bottom: 1rem;
+    height: 18rem;
+    border-radius: .25rem;
+    border: 1px solid $white;
+    cursor: none;
+    text-align: center;
+
+    @include media("<=phone") {
+        height: 10rem;
+        font-size: .85rem;
+    }
+}
+
+.options__container {
+    width: 100%;
+    
+    ul {
+        width: 100%;
+        list-style: none;
+        @include flex (flex, center, space-between, initial);
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        @include media("<=phone") {
+            flex-direction: column;
+            justify-content: initial;
+            gap: 5px;
+        }
+
+        li {
+            width: 45%;
+
+            @include media("<=phone") {
+                width: 80%;
+            }
+            
+            button {
+                width: 100%;
+                padding: .85rem;
+                margin-bottom: 1rem;
+                background: transparent;
+                border: 1px solid $white;
+                border-radius: .65rem;
+                box-shadow: 0 0.375em 0 currentcolor;
+                font-family: $primary-font;
+                color: $white;
+                font-size: .95rem;
+                cursor: pointer;
+                transition: all .3s ease-in-out;
+                
+                &:hover {
+                    transform: scale(.97);
+                }
+
+                &.correct {
+                    border-color: $green;
+                    box-shadow: 0 0.375em 0 $green;
+                }
+            }
+        }
+    }
+}
