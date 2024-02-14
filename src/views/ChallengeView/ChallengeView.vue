@@ -39,7 +39,7 @@
         <!-- Leaderboard -->
         <div class="leaderboard__container">
           <h2>Leaderboard</h2>
-          <ScoreBoard />
+          <!-- <ScoreBoard /> -->
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@ import { useToast } from "vue-toastification";
 import Modal from "@/components/Modal/Modal.vue";
 import GameBoard from "@/components/GameBoard/GameBoard.vue";
 import Placeholder from "@/components/Placeholder/Placeholder.vue";
-import ScoreBoard from "@/components/ScoreBoard/Scoreboard.vue";
+// import ScoreBoard from "@/components/ScoreBoard/Scoreboard.vue";
 
 import SvgSpinners12DotsScaleRotate from "@/assets/icons/SvgSpinners12DotsScaleRotate.vue";
 import IonCash from "@/assets/icons/IonCash.vue";
