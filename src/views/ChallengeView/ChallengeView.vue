@@ -64,9 +64,10 @@ import { useRouter } from "vue-router";
 import { db } from "../../../firebase.config";
 import { doc, updateDoc, getDoc, onSnapshot } from "firebase/firestore";
 import { useToast } from "vue-toastification";
+import Placeholder from "@/components/Placeholder/Placeholder.vue";
 import Modal from "@/components/Modal/Modal.vue";
 import GameBoard from "@/components/GameBoard/GameBoard.vue";
-import Placeholder from "@/components/Placeholder/Placeholder.vue";
+import ScoreBoard from "@/components/ScoreBoard/ScoreBoard.vue";
 // import ScoreBoard from "@/components/ScoreBoard/Scoreboard.vue";
 
 import SvgSpinners12DotsScaleRotate from "@/assets/icons/SvgSpinners12DotsScaleRotate.vue";
