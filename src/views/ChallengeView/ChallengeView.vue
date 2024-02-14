@@ -39,7 +39,7 @@
         <!-- Leaderboard -->
         <div class="leaderboard__container">
           <h2>Leaderboard</h2>
-          <!-- <ScoreBoard /> -->
+          <ScoreBoard />
         </div>
       </div>
     </div>
